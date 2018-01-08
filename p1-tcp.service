@@ -1,0 +1,15 @@
+[Unit]
+Description=Energy meter P1 to tcp service
+After=network.target
+
+[Service]
+Type=simple
+User=p1reader
+# TODO source these values from file in /etc/defaults
+ExecStart=/usr/local/bin/tcp_serial_redirect.py -P 9000 /dev/ttyAMA0 115200
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
