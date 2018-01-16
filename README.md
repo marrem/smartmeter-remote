@@ -187,6 +187,12 @@ Press CTRL-A Z for help on special keys
 ...
 ```
 
+![De interface gebouwd op Pi-breakout plus](p1-raspi-interface.jpg)
+De interface gebouwd op Pi-breakout plus
+
+![De Raspberry Pi met de interface in behuizing](raspi-if-in-case.jpg)
+De Raspberry Pi met de interface in behuizing
+
 ## TCP/IP - serial bridge
 
 Je kunt nu op de Raspberry Pi bijv Domoticz installeren. Deze software kan een P1 poort met DSMR gegevens uitlezen.
@@ -241,6 +247,41 @@ Stop de telnet sessie door '<ctrl>]' te typen en dan 'q'.
 
 Op Raspberry Pi kan de TCP/IP - serial bridge gestopt worden door '<ctrl>C' te typen.
 
+![De meterdata over het netwerk](netwerk-client.jpg)
+De meterdata over het netwerk.
+
+![De meterkast met de Landis&Gyr E350 en de P1 naar tcp interface](meter-met-interface.jpg)
+De meterkast met de Landis&Gyr E350 en de P1 naar tcp interface
+
+
 ### Run TCP/IP - serial bridge als service
 
-TODO
+Maak een user en groep aan op de Raspberry Pi waaronder de serial-tcp bridge moet runnen.
+
+```
+groupadd p1serial
+adduser -g p1serial p1serial
+```
+
+Plaats het bestand [tcp_serial_redirect.py](https://raw.githubusercontent.com/pyserial/pyserial/master/examples/tcp_serial_redirect.py) in `/usr/local/bin`
+
+Plaats het bestand [p1-tcp.service](p1-tcp.service) in `/usr/local/etc/systemd/system` (maak de directory eventueel aan als deze niet bestaat).
+
+Maak een symbolic link in de directory  `/etc/systemd/system` naar `/usr/local/etc/systemd/system/p1-tcp.service`
+
+```
+cd /etc/systemd/system
+$ sudo ln -s /usr/local/etc/systemd/system/p1-tcp.service
+```
+
+Voer uit
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable p1-tcp.service
+sudo systemctl start p1-tcp.service
+```
+
+De p1-tcp service zal nu automatisch opgestart worden als de Raspberry Pi opstart.
+
+ 
