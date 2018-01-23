@@ -243,9 +243,9 @@ Op de Raspberry Pi is te zien dat er een verbinding wordt gemaakt.
 Connected by ('192.168.10.2', 34202)
 ```
 
-Stop de telnet sessie door '&lt;ctrl&gt;]' te typen en dan 'q'.
+Stop de telnet sessie door '&lt;ctrl&gt;+]' te typen en dan 'q'.
 
-Op Raspberry Pi kan de TCP/IP - serial bridge gestopt worden door '&lt;ctrl&gt;C' te typen.
+Op Raspberry Pi kan de TCP/IP - serial bridge gestopt worden door '&lt;ctrl&gt;+C' te typen.
 
 ![De meterdata over het netwerk](netwerk-client.jpg)
 De meterdata over het netwerk.
