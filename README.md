@@ -219,7 +219,7 @@ Waiting for connection on 9000...
 Maak vanaf een ander systeem een verbinding met de tcp socket (er kan maar 1 verbinding tegelijk gemaakt wordne met de socket).
 
 Mijn Raspberry Pi heeft adres 192.168.10.75. Als je andere systeem MDNS/Bonjour/Avahi ondersteund, werkt
-<hostname>.local ook ipv het ip adres.
+&lt;hostname&gt;.local ook ipv het ip adres.
 
 ```
 ~ marc_p$ telnet 192.168.10.75 9000
@@ -243,9 +243,9 @@ Op de Raspberry Pi is te zien dat er een verbinding wordt gemaakt.
 Connected by ('192.168.10.2', 34202)
 ```
 
-Stop de telnet sessie door '<ctrl>]' te typen en dan 'q'.
+Stop de telnet sessie door '&lt;ctrl&gt;]' te typen en dan 'q'.
 
-Op Raspberry Pi kan de TCP/IP - serial bridge gestopt worden door '<ctrl>C' te typen.
+Op Raspberry Pi kan de TCP/IP - serial bridge gestopt worden door '&lt;ctrl&gt;C' te typen.
 
 ![De meterdata over het netwerk](netwerk-client.jpg)
 De meterdata over het netwerk.
@@ -283,5 +283,3 @@ sudo systemctl start p1-tcp.service
 ```
 
 De p1-tcp service zal nu automatisch opgestart worden als de Raspberry Pi opstart.
-
- 
